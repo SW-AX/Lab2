@@ -30,20 +30,26 @@
     <section class="main" id="s1">
     
 	<div>
-	    <form id="fpreguntas" name="fpreguntas" action="prueba.php">
-			Email:*<input type="text" id="var1"> <br>
-			Enunciado de la pregunta:*<input type="text" id="var2"> <br>
-			Respuesta Correcta:*<input type="text" id="var3"> <br>
-			Respuesta Incorrecta:*<input type="text" id="var4"> <br>
-			Respuesta Incorrecta:*<input type="text" id="var5"> <br>
-			Respuesta Incorrecta:*<input type="text" id="var6"> <br>
-			Complejidad (1..5)* <input type="text" id="var7"> <br>
-			Tema:<input type="text" id="var8"> <br>
-			Imagen: <input type="file" id="var9" name="img" accept="image/*"> <br>
+		<img id="newImg" src="" style="float:right;width:180px;height:180px"> <br>
+	    <form id="fpreguntas" name="fpreguntas" action=prueba.php style="float:left">
+			Email:*<input type="text" id="var1" style="width:225px"> <br>
+			Enunciado de la pregunta:*<input type="text" id="var2" style="width:225px"> <br>
+			Respuesta Correcta:*<input type="text" id="var3" style="width:225px"> <br>
+			Respuesta Incorrecta:*<input type="text" id="var4" style="width:225px"> <br>
+			Respuesta Incorrecta:*<input type="text" id="var5" style="width:225px"> <br>
+			Respuesta Incorrecta:*<input type="text" id="var6" style="width:225px"> <br>
+			Complejidad (1..5)* <input type="text" id="var7" style="width:225px"> <br>
+			Tema:*<input type="text" id="var8" style="width:225px"> <br>
+			Imagen: <input type="file" id="var9" name="img" accept="image/*" onchange="changeImg(this)"> <br>
+			
 			<input type="submit" value="Enviar" id="send">
 			<input type="reset" id="del">
 		</form>
 	</div>
+	
+	
+	
+	
     </section>
 	<footer class='main' id='f1'>
 		<p><a href="http://es.wikipedia.org/wiki/Quiz" target="_blank">Que es un Quiz?</a></p>
@@ -63,7 +69,7 @@
             var var5 = $("#var5").val();
             var var6 = $("#var6").val();
             var var7 = $("#var7").val();
-            if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == "" || var6 == "" || var7 == ""){
+            if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == "" || var6 == "" || var7 == "" || var8 == ""){
                 alert("Rellene todos los campos obligatorios");
 				return false;
             } 
@@ -84,7 +90,15 @@
 		
 			});
 		});
-
+		
+		 function changeImg(input){
+            var reader= new FileReader();
+            reader.onload= function(e){
+               $('#newImg').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+		
         
         $("#del").click(function(){
             $("#var1").val("");
