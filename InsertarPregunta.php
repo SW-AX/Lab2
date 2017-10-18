@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Haciendo cosas</title>
+		<title>Insertar Preguntas</title>
 	</head>
 	<body>
 		<?php
