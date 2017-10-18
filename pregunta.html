@@ -30,9 +30,12 @@
     <section class="main" id="s1">
     
 	<div>
-		<img id="newImg" src="" style="float:right;width:180px;height:180px"> <br>
+		<span id="sp1">
+			
+		</span>
+		
 	    <form id="fpreguntas" name="fpreguntas" action=prueba.php style="float:left">
-			Email:*<input type="text" id="var1" style="width:225px"> <br>
+			Email:*<input type="text" id="var1" style="width:225px" autocomplete="true"> <br>
 			Enunciado de la pregunta:*<input type="text" id="var2" style="width:225px"> <br>
 			Respuesta Correcta:*<input type="text" id="var3" style="width:225px"> <br>
 			Respuesta Incorrecta:*<input type="text" id="var4" style="width:225px"> <br>
@@ -40,7 +43,7 @@
 			Respuesta Incorrecta:*<input type="text" id="var6" style="width:225px"> <br>
 			Complejidad (1..5)* <input type="text" id="var7" style="width:225px"> <br>
 			Tema:*<input type="text" id="var8" style="width:225px"> <br>
-			Imagen: <input type="file" id="var9" name="img" accept="image/*" onchange="changeImg(this)"> <br>
+			Imagen: <input type="file" id="var9" name="img" accept="image/*" onChange="changeImg(this)"> <br>
 			
 			<input type="submit" value="Enviar" id="send">
 			<input type="reset" id="del">
@@ -77,7 +80,7 @@
                 alert("La pregunta tiene que tener al menos 10 caracteres");
 				return false;
             }
-            if (var7 !="1" && var7 !="2" && var7 !="3" && var7 !="4" && var7 !="5"  ){
+            if (!var7.match(/^([1-5])$/)  ){
                 alert("La complejidad tiene que tener un número entero entre 1 y 5");
 				return  false; 
             }
@@ -92,9 +95,10 @@
 		});
 		
 		 function changeImg(input){
+		 	$("#sp1").append('<img id="newImg" src="" style="float:right;width:180px;height:180px"> <br>');
             var reader= new FileReader();
             reader.onload= function(e){
-               $('#newImg').attr('src', e.target.result);
+               	$('#newImg').attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
         }
