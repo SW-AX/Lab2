@@ -25,17 +25,17 @@
 			$link = mysqli_connect("localhost","root","","quiz");
 			$imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
 
-			if ($_POST[email] == "" || $_POST[identificador] == "" || $_POST[nick] == "" || $_POST[password1] == "" || $_POST[password2] == "")
+			if ($_POST['email'] == "" || $_POST['identificador'] == "" || $_POST['nick'] == "" || $_POST['password1'] == "" || $_POST['password2'] == "")
 				die("Error campos vacios");
 			if !preg_match("/^([a-zA-Z])+([0-9]{3})+(@ikasle.ehu.)+(es|eus)$/","$_POST[email]")
 				die("Error email");
 			if !preg_match("/^([a-zA-Z])+((([ ])+([a-zA-Z]{1,})){1,})$/","$_POST[identificador]")
 				die("Error identificador");
-			if ($_POST[password1] == "" != $_POST[password2] == "")
+			if ($_POST['password1'] == "" != $_POST['password2'] == "")
 				die("Error contraseñas");
 			
 
-			$sql = "INSERT INTO usuarios(email, nombre, nick, password, foto) VALUES ('$_POST[email]', '$_POST[identificador]', '$_POST[nick]', '$_POST[password1]', '$_POST[password2]', '$imagen')";
+			$sql = "INSERT INTO usuarios(email, nombre, nick, password, foto) VALUES ('$_POST[email]', '$_POST[identificador]', '$_POST[nick]', '$_POST[password1]', $imagen')";
 
 			if(!mysqli_query($link, $sql)) {
 				die("Error: " . mysqli_error($link));
