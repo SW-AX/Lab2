@@ -44,11 +44,7 @@
 					if ($op == "preguntas")
 						echo("Bienvenido!");
 
-						<script type='text/javascript'>
-						function despedida(){
-							alert("Adios! Vuelve pronto");
-							
-						} </script>
+						
 					
 					?>
 				</div>
@@ -59,5 +55,11 @@
 			</footer>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script language="javascipt">
+						function despedida(){
+							alert("Adios! Vuelve pronto");
+							
+						} 
+		</script>
 	</body>
 </html>
