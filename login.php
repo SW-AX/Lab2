@@ -13,19 +13,19 @@
 		<div id='page-wrap'>
 			<header class='main' id='h1'>
 				<span class="right"><a href="registrar.html">Registrarse</a></span>
+				<span class="left"><a href="login.php?op=login" onclick="despedida()">Logout</a></span>
 				<h2>Quiz: el juego de las preguntas</h2>
 			</header>
 			<nav class='main' id='n1' role='navigation'>
-				<span><a href='layout.html'>Inicio</a></spam>
-				<span ><a id="vp" href='VerPreguntaConFoto.php'>Preguntas</a></spam>
+				<span><a href='layout.html'>Inicio</a></span>
+				<span ><a id="vp" href='VerPreguntaConFoto.php'>Preguntas</a></span>
 				<span><a href='creditos.html'>Creditos</a></spam>
-				<span ><a id="ip" href='pregunta.html'>Añadir Pregunta</a></spam>
+				<span ><a id="ip" href='pregunta.html'>Añadir Pregunta</a></span>
 			</nav>
 			<section class="main" id="s1">
 				<div>
 					<span id="sp1"></span>
 					<?php
-
 					$op = $_GET['op'];
 					if ($op == "login")
 						echo(
@@ -44,7 +44,11 @@
 					if ($op == "preguntas")
 						echo("Bienvenido!");
 
-
+						<script type='text/javascript'>
+						function despedida(){
+							alert("Adios! Vuelve pronto");
+							
+						} </script>
 					
 					?>
 				</div>
