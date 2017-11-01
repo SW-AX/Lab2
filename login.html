@@ -23,9 +23,9 @@
 			<section class="main" id="s1">
 				<div>
 					<span id="sp1"></span>
-					<form id="flogin" name="flogin"  action=prueba.php >
-						Email*:<input type="text" id="var1"style="width:225px"> <br>
-						Password*:<input type="password" id="var2= style="width:225px"> <br>
+					<form enctype="multipart/form-data" id="flogin" name="flogin" method="post" action=validarLogin.php >
+						Email*:<input type="text" id="email" name="email" style="width:225px"> <br>
+						Password*:<input type="password" id="pass" name="pass" style="width:225px"> <br>
 						<input type="submit" value="Enviar" id="send">
 						<input type="reset" id="del">
 					</form>
