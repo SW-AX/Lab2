@@ -9,10 +9,8 @@
 	</head>
 	<body>
 		<div id='page-wrap'>
-			<header class='main' id='h1'>
-				<span class="right"><a href="registrar.html">Registrarse</a></span>
+			<header class='main' id='h1'>				
 				<span class="right"><a href="login">Login</a></span>
-				<span class="right" style="display:none;"><a href="/logout">Logout</a></span>
 				<h2>Quiz: el juego de las preguntas</h2>
 			</header>
 			<nav class='main' id='n1' role='navigation'>
@@ -24,16 +22,13 @@
 			<section class="main" id="s1">
 				<div>
 					<span id="sp1"></span>
-					<form id="fpreguntas" name="fpreguntas" method="post" action=InsertarPreguntaConFoto.php style="float:left" enctype="multipart/form-data">
+					<form id="fregistro" name="fregistro" method="post" action=registrar.php style="float:left" enctype="multipart/form-data">
 						Email:*<input type="text" id="var1" name="email" style="width:225px" autocomplete="true"> <br>
-						Enunciado de la pregunta:*<input type="text" name="enunciado" id="var2" style="width:225px"> <br>
-						Respuesta Correcta:*<input type="text" id="var3" name="rCorrecta" style="width:225px"> <br>
-						Respuesta Incorrecta:*<input type="text" id="var4" name="rIncorrecta1" style="width:225px"> <br>
-						Respuesta Incorrecta:*<input type="text" id="var5" name="rIncorrecta2" style="width:225px"> <br>
-						Respuesta Incorrecta:*<input type="text" id="var6" name="rIncorrecta3" style="width:225px"> <br>
-						Complejidad (1..5)* <input type="text" id="var7" name="complejidad" style="width:225px"> <br>
-						Tema:*<input type="text" id="var8" name="tema" style="width:225px"> <br>
-						Imagen: <input type="file" id="var9" name="imagen" accept="image/*" onChange="changeImg(this)"> <br>
+						Nombre y Apellidos:*<input type="text" name="identificador" id="var2" style="width:225px" autocomplete="true"> <br>
+						Nick:*<input type="text" id="var3" name="nick" style="width:225px"> <br>
+						Password:*<input type="password" id="var4" name="password1" style="width:225px"> <br>
+						Repetir Password:*<input type="password" id="var5" name="password2" style="width:225px"> <br>
+						Foto (opcional): <input type="file" id="var6" name="imagen" accept="image/*" onChange="changeImg(this)"> <br>
 						<input type="submit" value="Enviar" id="send">
 						<input type="reset" id="del">
 					</form>
@@ -47,7 +42,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				/*
+				
 				$('#send').click(function(){
 					var var1 = $("#var1").val();
 					var var2 = $("#var2").val();
@@ -55,29 +50,27 @@
 					var var4 = $("#var4").val();
 					var var5 = $("#var5").val();
 					var var6 = $("#var6").val();
-					var var7 = $("#var7").val();
-					if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == "" || var6 == "" || var7 == "" || var8 == ""){
+					if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == ""){
 						alert("Rellene todos los campos obligatorios");
 						return false;
 					}
-					/*
-					if (var2.length <10){
-						alert("La pregunta tiene que tener al menos 10 caracteres");
-						return false;
-					}
-					
-					if (!var7.match(/^([1-5])$/)  ){
-						alert("La complejidad tiene que tener un número entero entre 1 y 5");
-						return  false;
-					}
-					
 					
 					if (var1.match(/^([a-zA-Z])+([0-9]{3})+(@ikasle.ehu.)+(es|eus)$/)){
 					} else {
 						alert("Introduzca un email correcto");
 						return false;
 					}
-					*/
+					
+					if (var2.match(/^([a-zA-Z]+(([ ])+([a-zA-Z])){1,})$/)){
+					} else
+						alert("Introduzca una identificación Correcta: Nombre Apellido");
+						return false;
+					}
+					
+					if (var4 != var5){
+						alert("Las contraseñas no coinciden")
+						return false;
+						} 
 					return true;
 				});
 			});
@@ -98,7 +91,6 @@
 				$("#var4").val("");
 				$("#var5").val("");
 				$("#var6").val("");
-				$("#var7").val("");
 				$('#newImg').remove();
 			});
 		</script>
