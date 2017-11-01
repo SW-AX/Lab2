@@ -41,39 +41,39 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
-			$(document).ready(function() {
+			
 				
-				$('#send').click(function(){
-					var var1 = $("#var1").val();
-					var var2 = $("#var2").val();
-					var var3 = $("#var3").val();
-					var var4 = $("#var4").val();
-					var var5 = $("#var5").val();
-					var var6 = $("#var6").val();
-					if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == ""){
-						alert("Rellene todos los campos obligatorios");
-						return false;
-					}
-					
-					if (var1.match(/^([a-zA-Z])+([0-9]{3})+(@ikasle.ehu.)+(es|eus)$/)){
-					} else {
-						alert("Introduzca un email correcto");
-						return false;
-					}
-					
-					if (var2.match(/^([a-zA-Z]+(([ ])+([a-zA-Z])){1,})$/)){
-					} else
-						alert("Introduzca una identificación Correcta: Nombre Apellido");
-						return false;
-					}
-					
-					if (var4 != var5){
-						alert("Las contraseñas no coinciden")
-						return false;
-						} 
-					return true;
-				});
+			$('#send').click(function(){
+				var var1 = $("#var1").val();
+				var var2 = $("#var2").val();
+				var var3 = $("#var3").val();
+				var var4 = $("#var4").val();
+				var var5 = $("#var5").val();
+				var var6 = $("#var6").val();
+				if (var1 == "" || var2 == "" || var3 == "" || var4 == "" || var5 == ""){
+					alert("Rellene todos los campos obligatorios");
+					return false;
+				}
+				
+				if (var1.match(/^([a-zA-Z])+([0-9]{3})+(@ikasle.ehu.)+(es|eus)$/)){
+				} else {
+					alert("Introduzca un email correcto");
+					return false;
+				}
+				
+				if (var2.match(/^([a-zA-Z]+(([ ])+([a-zA-Z])){1,})$/)){
+				} else {
+					alert("Introduzca una identificación Correcta: Nombre Apellido");
+					return false;
+				}
+				
+				if (var4 != var5){
+					alert("Las contraseñas no coinciden");
+					return false;
+				} 
+				return true;
 			});
+			
 			function changeImg(input){
 				if (!$('#newImg').length) {
 				$("#sp1").append('<img id="newImg" src="" style="float:right;width:180px;height:180px">');
