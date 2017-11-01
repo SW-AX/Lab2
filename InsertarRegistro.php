@@ -35,7 +35,7 @@
 				die("Error contraseñas");
 			
 
-			$sql = "INSERT INTO usuarios(email, nombre, nick, password, foto, foto) VALUES ('$_POST[email]', '$_POST[identificador]', '$_POST[nick]', '$_POST[password1]', '$_POST[password2]', '$imagen')";
+			$sql = "INSERT INTO usuarios(email, nombre, nick, password, foto) VALUES ('$_POST[email]', '$_POST[identificador]', '$_POST[nick]', '$_POST[password1]', '$_POST[password2]', '$imagen')";
 
 			if(!mysqli_query($link, $sql)) {
 				die("Error: " . mysqli_error($link));
